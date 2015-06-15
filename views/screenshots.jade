@@ -1,0 +1,17 @@
+html
+  head
+    title Browserstack explorer
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', type='text/css' )
+    script(type='text/javascript', src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js' )
+  body
+    div.container-fluid
+        h1.page-header= app_url.name
+        each screenshot in screenshots
+          div
+            div.panel.panel-default
+              div.panel-body
+                div= 'Browser: ' + screenshot.browser + ' ' + (screenshot.browser_version? screenshot.browser_version : '')
+                div= 'OS: ' + screenshot.os + ' ' + screenshot.os_version
+                div= screenshot.device ? 'device: ' + screenshot.device : ''
+            img.media-object(src=screenshot.image_url)
+          hr

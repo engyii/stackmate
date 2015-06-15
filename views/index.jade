@@ -1,0 +1,14 @@
+html
+  head
+    title Browserstack explorer
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', type='text/css' )
+    script(type='text/javascript', src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js' )   
+  body
+    div.container
+        h1 Browserstack screenshot sessions
+        div.panel
+            each session in sessions
+                h2= session.session
+                ul.list-group
+                  each page,index in session.pages
+                    a.list-group-item(href='/screenshots/'+session.session+'/'+index)= page
